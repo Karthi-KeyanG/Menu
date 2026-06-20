@@ -4,19 +4,21 @@ int main()
 {
          char op,ch,ss;                                     // op = select the cat,  ch = wuw inside the cat,  ss = for while loop
 
-         int qty,totel=0;                                   
+         int qty; 
+         
+         float gst=0,totel=0;
 
          char ckn65=0,  dckn=0,  panpak=0,   fisfin=0;               // Starters
          char cknbri=0, mutbri=0, prabri=0, butckn=0;               // Main course
          char guljam=0, ice=0,   frusal=0,   broice=0;          // dessert
          char frelim=0, moj=0, soft=0,  cold=0;                  // beverage
          
-         printf("\n\n--------Welcome to the Hotel--------\n\n");
+         printf("\n\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Welcome to the Hotel ~ ~ ~ ~ ~ ~ ~ ~ ~ ~\n\n");
 
    do
    {
             
-      printf("\nSelect what you want->\n\n");
+      printf("\nSelect what you want -->\n\n");
       printf("   1. Starter\n   2. Main course\n   3. Dessert\n   4. Beverages\n   5. Exit\n");
 
       printf("Enter your choise: ");
@@ -137,7 +139,7 @@ int main()
 
                case '4':
                printf("\n---------- Beverages ----------\n");
-               printf("   1. Fresh Lime Juice  ---> 40\n   2. Mojito            ---> 70\n   3. Soft Drink        ---> 40\n   4. Cold Coffee       ---> 50\n");
+               printf("   1. Fresh Lime Juice  ---> 40\n   2. Mojito            ---> 70\n   3. Soft Drink        ---> 40\n   4. Cool Coffee       ---> 50\n");
 
                printf("Enter your choise: ");
                scanf(" %c",&ch);
@@ -162,7 +164,7 @@ int main()
                      break;
 
                      case '4':
-                     printf("You have ordered %c Cold Coffee\n",qty)
+                     printf("You have ordered %c Cold Coffee\n",qty);
                      cold += qty;
                      break;
 
@@ -196,19 +198,121 @@ int main()
    } while (ss == 'Y' || ss == 'y');
 
 //------------------------------------------------------------------------------------------------------------------
+   // printf("\n\n==========================================\n");
 
-   printf("\n---------- Billing ----------\n\n");
+   printf("\n\n=============== Billing ==================\n");
+
+
+
+
+      printf("\n Qty           Item              Rupees\n\n");
 
    if(ckn65>0)
    {
-      printf("  %d chicken65   Rs.%d\n",ckn65,ckn65*100);
+      printf("  %d     Chicken 65               Rs.%d\n",ckn65,ckn65*100);
       totel += ckn65*100;
    }
-   // if(dckn<0)
-   // {
-   //    total += dckn*
-   // }
+   if(dckn>0)
+   {
+      printf("  %d     DragonChicken            Rs.%d\n",dckn,dckn*150);
+      totel += dckn*150;
+   }
+   if(panpak>0)
+   {
+      printf("  %d     Paneer Pakoda            Rs.%d\n",panpak,panpak*100);
+      totel += panpak*100;
+   }   
+   if(fisfin>0)
+   {
+      printf("  %d     Fish Fingers             Rs.%d\n",fisfin,fisfin*150);
+      totel += fisfin*150;
+   } 
+
+   //------------- M C-------------------
+
+   if(cknbri>0)
+   {
+      printf("  %d     Chicken Briyani          Rs.%d\n",cknbri,cknbri*150);
+      totel += cknbri*150;
+   }   
+   if(mutbri>0)
+   {
+      printf("  %d     Muttern Briyani          Rs.%d\n",mutbri,mutbri*250);
+      totel += mutbri*250;
+   }   
+   if(prabri>0)
+   {
+      printf("  %d     Prawn Briyani            Rs.%d\n",prabri,prabri*200);
+      totel += prabri*200;
+   }   
+   if(butckn>0)
+   {
+      printf("  %d     Butter Chicken           Rs.%d\n",butckn,butckn*200);
+      totel += butckn*200;
+   }   
+
+   //------------------des---------------------------
+   if(guljam>0)
+   { 
+      printf("  %d     GulobJamun               Rs.%d\n",guljam,guljam*40);
+      totel += guljam*40;
+   }   
+   if(ice>0)
+   {
+      printf("  %d     Ice Cream                Rs.%d\n",ice,ice*50);
+      totel += ice*50;
+   }   
+      if(frusal>0)
+   {
+      printf("  %d     Fruit Salad              Rs.%d\n",frusal,frusal*60);
+      totel += frusal*60;
+   }   
+   if(broice>0)
+   {
+      printf("  %d     Browni with Icecream     Rs.%d\n",broice,broice*100);
+      totel += broice*100;
+   }   
 
 
-printf("totel = %d\n",totel);
+   //----------------------bev-------------
+
+   if(frelim>0)
+   {
+      printf("  %d     Fresh Lime Juice         Rs.%d\n",frelim,frelim*40);
+      totel += frelim*40;
+   }   
+   if(moj>0)
+   {
+      printf("  %d     Mojito                   Rs.%d\n",moj,moj*70);
+      totel += moj*70;
+   }   
+   if(soft>0)
+   {
+      printf("  %d     Soft Drinks              Rs.%d\n",soft,soft*40);
+      totel += soft*40;
+   }   
+   if(cold>0)
+   {
+      printf("  %d     Cool Coffe               Rs.%d\n",cold,cold*50);
+      totel += cold*50;
+   }
+
+printf("\n           ================================\n");
+
+printf("\n               Totel         =    Rs.%g\n",totel);
+
+printf("\n            -------------------------------\n");
+
+
+gst = totel * 18 / 100;
+totel = totel + gst;
+
+printf("\n               Gst 18%%       =    Rs.%g\n",gst);
+printf("\n            -------------------------------\n");
+
+printf("\n           Amount After GST  =    Rs.%g\n",totel);
+printf("\n===========================================\n");
+   printf("        Thankyou for the visit\n            Have a nice day");
+
+      printf("\n===========================================\n");
 }
